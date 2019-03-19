@@ -21,7 +21,43 @@
     <noscript>
       <p>You need to enable JavaScript to run this app.</p>
     </noscript>
+    <div class="container">
+      <section>
+        <form id="search-form">
+          <div class="form-container">
 
-    <div class="intro">Hello Vanilla!</div>
+            <div class="radio-wrapper">
+            <div class="input-container">
+              <div class="radio"><input type="radio" name="media" value="image">Image</input></div>
+              <div class="radio"><input type="radio" name="media" value="video">Video</input></div>
+              <div class="radio"><input type="radio" name="media" value="all">All</input></div>
+              </div>
+            </div>
+
+            <div class="search-wrapper">
+              <div class="input-container">
+                <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Enter a keyword"
+                />
+              </div>
+            </div>
+
+            <div class="submit-wrapper">
+              <div class="input-container">
+                <button type="submit">
+<div class="search icon"></div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section>
+        <div class="intro"></div>
+      </section>
+    </div>
   </body>
 </html>
