@@ -67,8 +67,7 @@ div.form-container > div.submit-wrapper {
 }
 
 div.input-container {
-  width: 90%;
-  margin: auto;
+  width: 100%;
   padding: 0 1rem;
 }
 
@@ -175,7 +174,8 @@ div.wrapper > .text {
   width: 300px;
 }
 
-.image img {
+.image img,
+.image video {
   max-width: 100%;
   max-height: 100%;
   vertical-align: middle;
