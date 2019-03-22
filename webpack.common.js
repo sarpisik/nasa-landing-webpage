@@ -18,14 +18,23 @@ module.exports = {
         use: [{ loader: 'file-loader', options: { outputPath: 'fonts/' } }]
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
         use: [
           {
             loader: 'file-loader',
-            options: { outputPath: 'images/' }
+            options: { outputPath: 'icon/' }
           }
         ]
       }
+      // {
+      //   test: /\.mp4$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: { outputPath: 'video/' }
+      //     }
+      //   ]
+      // }
     ]
   },
   plugins: [

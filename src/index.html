@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Vanilla Boilerplate</title>
     <meta
@@ -22,42 +22,69 @@
       <p>You need to enable JavaScript to run this app.</p>
     </noscript>
     <div class="container">
-      <section>
-        <form id="search-form">
-          <div class="form-container">
+      <!-- Search Bar -->
+      <section class="search-bar">
+        <!-- Alert Panel -->
+        <div class="alert-container">
+          <p class="alert-text"></p>
+        </div>
 
-            <div class="radio-wrapper">
-            <div class="input-container">
-              <div class="radio"><input type="radio" name="media" value="image">Image</input></div>
-              <div class="radio"><input type="radio" name="media" value="video">Video</input></div>
-              <div class="radio"><input type="radio" name="media" value="all">All</input></div>
-              </div>
-            </div>
-
+        <!-- Search Bar -->
+        <div class="form-container">
+          <!-- Form -->
+          <form id="search-form">
+            <!-- Text Input -->
             <div class="search-wrapper">
               <div class="input-container">
                 <input
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Enter a keyword"
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="Enter a keyword"
                 />
               </div>
             </div>
-
+            <!-- Submit Input -->
             <div class="submit-wrapper">
               <div class="input-container">
                 <button type="submit">
+                  <div class="lds-dual-ring"></div>
                   <div class="search icon"></div>
                 </button>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </section>
-      <section>
+
+      <!-- Media -->
+      <section class="media">
         <div class="intro"></div>
       </section>
+
+      <!-- Modal -->
+      <div class="modal" style="display: none">
+        <div class="overlay"></div>
+        <div class="modal_content">
+          <!-- End of Dynamic Section -->
+          <button title="Close" class="close_modal">
+            X
+          </button>
+          <div class="wrapper">
+            <div class="header">
+              <h1 class="">
+                <small class=""><br /></small>
+              </h1>
+            </div>
+            <div class="image">
+              <img class="" src="" alt="" />
+            </div>
+            <div class="text">
+              <p class=""></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
