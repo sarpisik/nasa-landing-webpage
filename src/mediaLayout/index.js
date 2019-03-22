@@ -4,18 +4,19 @@ import searchHistory from '../searchHistory'
 import smoothScroll from '../scroll'
 import toggleModal from '../modal'
 import filterCreator from '../filter'
-import alertBox from '../alertBox'
 
 // Get Element
+const intro = getElement('.intro')
 const section = getElement('.media')
 
 // Functions
-const removeList = intro => {
+const removeList = () => {
   while (intro.hasChildNodes()) {
     intro.removeChild(intro.firstChild)
   }
 }
-const renderMedia = (item, intro) => {
+
+const renderMedia = item => {
   // Create Elements
   let media,
     track,
@@ -67,35 +68,22 @@ const renderMedia = (item, intro) => {
   searchHistory.isSearched = true
 }
 
-export default (data, form, text, intro, type) => {
+export default (items, form) => {
   // Delete previous media if Exist
-  searchHistory.isSearched && removeList(intro)
+  searchHistory.isSearched && removeList()
 
-  // Fetched data
-  const items = data.collection.items
-
-  // If the data is not empty keep process.
-  // Else, print an error
-  if (items.length > 0) {
-    setTimeout(() => {
-      // Remove loading indicator
-      form.classList.remove('loading')
-      // Smooth scroll the results section
-      smoothScroll(intro, 500)
-    }, 1000)
-
-    section.style.minHeight = '100%'
-
-    // Create filter
-    filterCreator(intro, type)
-
-    // Print medias
-    items.forEach(item => renderMedia(item, intro))
-  } else {
-    // Stop loading indicator
+  setTimeout(() => {
+    // Remove loading indicator
     form.classList.remove('loading')
+    // Smooth scroll the results section
+    smoothScroll(intro, 500)
+  }, 1000)
 
-    // Alert the not founded text
-    alertBox(text, 'strong')
-  }
+  section.style.minHeight = '100%'
+
+  // Create filter form
+  filterCreator(intro)
+
+  // Print medias
+  items.forEach(renderMedia)
 }

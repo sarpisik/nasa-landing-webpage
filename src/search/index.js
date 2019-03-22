@@ -2,9 +2,33 @@ import getElement from '../selector'
 import searchHistory from '../searchHistory'
 import mediaLayout from '../mediaLayout'
 import smoothScroll from '../scroll'
+import alertBox from '../alertBox'
 
 // Get Elements
 const intro = getElement('.intro')
+
+// Resolver
+const resolver = (res, text, form) => {
+  // Fetched data
+  const items = res.collection.items
+
+  // If the data is not empty keep process.
+  // Else, print an error
+  if (items.length > 0) {
+    // Save this search
+    searchHistory[text] = { text: text, data: items }
+    searchHistory.lastSearch = text
+
+    // Update DOM
+    mediaLayout(items, form)
+  } else {
+    // Stop loading indicator
+    form.classList.remove('loading')
+
+    // Alert the not founded text
+    alertBox(text, 'strong')
+  }
+}
 
 export default (form, text) => {
   // Show loading indicator
@@ -16,21 +40,19 @@ export default (form, text) => {
   if (!searchHistory[text]) {
     fetch(`https://images-api.nasa.gov/search?q=${text}`)
       .then(res => res.json())
-      .then(res => {
-        // Save this search
-        searchHistory[text] = { text: text, data: res }
-        searchHistory.lastSearch = text
-
-        // Update DOM
-        mediaLayout(res, form, text, intro)
+      .then(res => resolver(res, text, form))
+      .catch(error => {
+        // Stop loading indicator
+        form.classList.remove('loading')
+        // Display error
+        alertBox(error)
       })
-      .catch(error => console.log(error))
   } else if (text !== searchHistory.lastSearch && searchHistory[text]) {
     // Save search text to avoid update DOM if user submit search again without any text change
     searchHistory.lastSearch = text
 
     // Update DOM
-    mediaLayout(searchHistory[text].data, form, searchHistory[text].text, intro)
+    mediaLayout(searchHistory[text].data, form, searchHistory[text].text)
   } else {
     // Stop loading indicator
     form.classList.remove('loading')

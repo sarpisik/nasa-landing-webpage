@@ -1,6 +1,5 @@
 // TODO: CODE SPLIT
 // TODO: INIT LOADING INDICATOR
-// TODO: LOCK BODY SCROLL ON MODAL
 import getElement from './selector'
 import doSearch from './search'
 import 'normalize.css'
@@ -50,4 +49,10 @@ window.addEventListener('load', () => {
   // Events
   form.addEventListener('change', handleChange)
   form.addEventListener('submit', handleSubmit)
+
+  // Shutdown loading screen after 2s
+  const el = getElement('.intro-loader')
+  setTimeout(() => {
+    el.parentNode.removeChild(el)
+  }, 2000)
 })

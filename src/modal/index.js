@@ -2,6 +2,7 @@ import getElement from '../selector'
 import mediaModal from './media'
 
 const modal = getElement('.modal')
+const body = document.body
 
 const onEsc = event => {
   const key = event.key || event.keyCode
@@ -30,9 +31,13 @@ const toggleModal = item => {
   // If modal is visible, hide it. Else, display it.
   if (currentState === 'none') {
     modal.style.display = 'block'
+    // Lock body scroll
+    body.style.overflow = 'hidden'
     attachModalListeners(modal)
     mediaModal(item, 'apply')
   } else {
+    // Unlock body scroll
+    body.style.overflow = 'auto'
     modal.style.display = 'none'
     mediaModal()
     detachModalListeners(modal)

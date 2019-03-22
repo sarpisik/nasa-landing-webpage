@@ -1,3 +1,19 @@
+div.intro-loader::after {
+  content: ' ';
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #3366ff;
+  border-color: #3366ff transparent #3366ff transparent;
+  position: absolute;
+  left: 50%;
+  margin-left: -23px;
+  top: 50%;
+  margin-top: -23px;
+  animation: dual-ring 1.2s linear infinite;
+}
 /* ubuntu-regular - latin-ext */
 @font-face {
   font-family: 'Ubuntu';
