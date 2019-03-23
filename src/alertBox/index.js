@@ -1,5 +1,6 @@
 import getElement from '../selector'
 import { append, createNode } from '../creator'
+import './index.css'
 
 // Get Elements
 const alertBox = getElement('.alert-container')

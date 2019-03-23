@@ -1,5 +1,6 @@
 import getElement from '../selector'
 import mediaModal from './media'
+import './index.css'
 
 const modal = getElement('.modal')
 const body = document.body

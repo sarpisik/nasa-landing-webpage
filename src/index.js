@@ -1,10 +1,7 @@
-// TODO: CODE SPLIT
-// TODO: INIT LOADING INDICATOR
 import getElement from './selector'
-import doSearch from './search'
+import form from './form'
 import 'normalize.css'
 import './index.css'
-import alertBox from './alertBox'
 
 window.addEventListener('load', () => {
   if (process.env.NODE_ENV !== 'production') {
@@ -25,34 +22,34 @@ window.addEventListener('load', () => {
       })
   }
 
-  // Validate by input values
-  const validation = {
-    text: ''
-  }
-
-  // Get Element
-  const form = getElement('search-form', 'id')
-
-  // Functions
-  const handleChange = e => {
-    validation[e.target.type] = e.target.value
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    // If input has value, do search. Else, notify user.
-    validation.text !== '' || alertBox('Please type in the search bar')
-    validation.text !== '' && doSearch(form, validation.text)
-  }
-
-  // Events
-  form.addEventListener('change', handleChange)
-  form.addEventListener('submit', handleSubmit)
-
   // Shutdown loading screen after 2s
   const el = getElement('.intro-loader')
   setTimeout(() => {
     el.parentNode.removeChild(el)
   }, 2000)
+
+  // Form component of search bar.
+  // If the form filled, do search. Else, display alert box.
+  form((res, ...props) => (res ? lazySearch(...props) : lazyAlert(...props)))
 })
+
+// Lazy loading functions
+function lazySearch(...props) {
+  import(/* webpackChunkName: "search" */ './search').then(module => {
+    // Search component
+    const doSearch = module.default
+
+    // Pass lazy loaded Alert component
+    // to display alert in case of not found any media
+    doSearch(lazyAlert, ...props)
+  })
+}
+function lazyAlert(...props) {
+  import(/* webpackChunkName: "alert" */ './alertBox').then(module => {
+    // Alert component
+    const alertBox = module.default
+
+    // Display alert
+    alertBox(...props)
+  })
+}

@@ -1,14 +1,17 @@
 import getElement from '../selector'
 import searchHistory from '../searchHistory'
-import mediaLayout from '../mediaLayout'
 import smoothScroll from '../scroll'
-import alertBox from '../alertBox'
+// import alertBox from '../alertBox'
+
+// Will be related to lazy loaded module
+// to layout fetched medias
+let mediaLayout
 
 // Get Elements
 const intro = getElement('.intro')
 
 // Resolver
-const resolver = (res, text, form) => {
+const resolver = (res, text, form, alertBox) => {
   // Fetched data
   const items = res.collection.items
 
@@ -19,8 +22,12 @@ const resolver = (res, text, form) => {
     searchHistory[text] = { text: text, data: items }
     searchHistory.lastSearch = text
 
-    // Update DOM
-    mediaLayout(items, form)
+    import(/* webpackChunkName: "layout" */ '../mediaLayout').then(module => {
+      mediaLayout = module.default
+
+      // Update DOM
+      mediaLayout(items, form)
+    })
   } else {
     // Stop loading indicator
     form.classList.remove('loading')
@@ -30,17 +37,14 @@ const resolver = (res, text, form) => {
   }
 }
 
-export default (form, text) => {
-  // Show loading indicator
-  form.classList.add('loading')
-
+export default (alertBox, form, text) => {
   // If this is not the repeat of the previous search, fetch data.
   // Else if this one of the previous search, get the data from searchHistory object and update the DOM.
   // Else, jump to results
   if (!searchHistory[text]) {
     fetch(`https://images-api.nasa.gov/search?q=${text}`)
       .then(res => res.json())
-      .then(res => resolver(res, text, form))
+      .then(res => resolver(res, text, form, alertBox))
       .catch(error => {
         // Stop loading indicator
         form.classList.remove('loading')

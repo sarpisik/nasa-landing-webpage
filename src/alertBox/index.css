@@ -1,0 +1,22 @@
+/* Alert Box */
+div.alert-container {
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  right: 0;
+  color: #fff;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 0px red;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+div.alert-container.show {
+  opacity: 1;
+}
+
+p.alert-text {
+  font-size: 0.7rem;
+}

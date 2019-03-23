@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/sarpisik/vanilla-boilerplate#readme",
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "whatwg-fetch": "^3.0.0"
   },
   "browserslist": [
     ">0.2%",

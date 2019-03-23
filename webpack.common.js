@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['whatwg-fetch', './src/index.js'],
   module: {
     rules: [
       {
@@ -26,15 +26,6 @@ module.exports = {
           }
         ]
       }
-      // {
-      //   test: /\.mp4$/,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: { outputPath: 'video/' }
-      //     }
-      //   ]
-      // }
     ]
   },
   plugins: [

@@ -4,6 +4,7 @@ import searchHistory from '../searchHistory'
 import smoothScroll from '../scroll'
 import toggleModal from '../modal'
 import filterCreator from '../filter'
+import './index.css'
 
 // Get Element
 const intro = getElement('.intro')

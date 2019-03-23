@@ -1,5 +1,6 @@
 import { append, createNode } from '../creator'
 import filterItems from './filterItems'
+import './index.css'
 
 // Create Elements
 let formContainer = createNode('div', 'form-container'),

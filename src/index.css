@@ -1,3 +1,4 @@
+/* Initial loading Indicator */
 div.intro-loader::after {
   content: ' ';
   display: block;
@@ -14,6 +15,7 @@ div.intro-loader::after {
   margin-top: -23px;
   animation: dual-ring 1.2s linear infinite;
 }
+
 /* ubuntu-regular - latin-ext */
 @font-face {
   font-family: 'Ubuntu';
@@ -76,36 +78,13 @@ div.container > section.search-bar {
   margin: auto;
 }
 
-/* Alert Box */
-div.alert-container {
-  position: absolute;
-  top: 0.5rem;
-  left: 0;
-  right: 0;
-  color: #fff;
-  padding: 0 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 10px 0px red;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-div.alert-container.show {
-  opacity: 1;
-}
-
-p.alert-text {
-  font-size: 0.7rem;
-}
-
 div.form-container {
   max-width: 20rem;
   display: table-cell;
   vertical-align: middle;
 }
 
-/* Searc Bar */
+/* Search Bar */
 form {
   box-shadow: 0px 0px 10px 0px #3366ff;
   padding: 1.5rem;
@@ -156,6 +135,7 @@ div.input-container button[type='submit']:hover {
   cursor: pointer;
 }
 
+/* Search icon */
 .search.icon {
   color: #fff;
   position: relative;
@@ -179,6 +159,7 @@ div.input-container button[type='submit']:hover {
   transition: all 0.2s ease-in-out;
 }
 
+/* Loading icon */
 #search-form.loading .search.icon {
   display: inline-block;
   height: auto;
@@ -208,254 +189,6 @@ div.input-container button[type='submit']:hover {
   100% {
     transform: rotate(360deg);
   }
-}
-
-/* Media */
-div.intro {
-  text-align: center;
-}
-
-div.intro > div.form-container {
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Filter Form */
-div.intro form {
-  box-shadow: 0px 0px 10px 0px #00cc00;
-}
-
-div.radio-wrapper {
-  text-align: left;
-}
-
-div.radio-wrapper > div.input-container {
-  padding: 0 0 0 1rem;
-}
-
-div.radio {
-  display: inline-block;
-  margin: auto;
-  width: 30%;
-}
-
-div.radio:hover,
-div.radio:hover * {
-  cursor: pointer;
-}
-
-div.radio input[type='radio'] {
-  margin-left: 4px;
-  vertical-align: middle;
-}
-
-div.filter {
-  max-width: 22rem;
-  margin: 1rem auto;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-div.filter-wrapper {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0.5rem;
-}
-
-div.filter-wrapper > p {
-  margin: 0;
-}
-
-div.filter-wrapper-column {
-  margin-bottom: 1rem;
-  min-height: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-bottom: solid 2px rgba(255, 255, 255, 0.35);
-}
-div.filter-wrapper-column > span:first-child {
-  float: left;
-}
-
-div.filter-wrapper-column > span > span {
-  margin-left: 1rem;
-}
-
-div.filter-wrapper-column > input {
-  background-color: transparent;
-  height: 100%;
-  color: #fff;
-  border: 0;
-}
-
-/* Results */
-div.wrapper {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  border-bottom: 1px solid #3366ff;
-}
-
-div.wrapper > div {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-div.wrapper > .header,
-div.wrapper > .text {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.header {
-  top: 0;
-  padding-top: 1rem;
-}
-
-.header h1 {
-  font-size: 1em;
-}
-
-.image {
-  display: table-cell;
-  vertical-align: middle;
-  height: 300px;
-  width: 300px;
-}
-
-.image img,
-.image video {
-  max-width: 100%;
-  max-height: 100%;
-  vertical-align: middle;
-}
-
-.text {
-  bottom: 0;
-  padding-bottom: 1rem;
-}
-
-.text > p {
-  font-size: 0.5rem;
-  overflow: hidden;
-  position: relative;
-  line-height: 1.2em;
-  max-height: 3.6em;
-  text-align: justify;
-  margin-right: -1em;
-  padding-right: 1em;
-}
-
-.text > p::before {
-  content: '...';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.text > p::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-  background: #000;
-}
-
-/* MODAL */
-div.modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 990;
-}
-
-div.modal .overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 995;
-  background: rgba(0, 0, 0, 0.85);
-}
-
-div.modal_content {
-  z-index: 999;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 90%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: #000;
-  box-sizing: border-box;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
-  width: 100%;
-}
-
-div.modal_content > div.wrapper {
-  border: none;
-  width: 100%;
-}
-
-div.modal_content div.wrapper > div.header {
-  position: static;
-}
-
-div.modal_content div.wrapper > div.image {
-  height: auto;
-  padding: 0;
-  display: block;
-  margin: auto;
-  width: 100%;
-}
-
-div.modal_content div.image > img {
-  display: block;
-  margin: auto;
-}
-
-div.modal_content div.wrapper > div.text {
-  position: static;
-}
-
-div.modal_content div.text p {
-  font-size: inherit;
-  max-height: none;
-}
-
-div.modal_content > h2 {
-  font-size: 28px;
-  font-weight: 200;
-  margin: 20px 0 40px;
-  text-align: center;
-}
-
-div.modal_content .buttons_wrapper {
-  padding: 20px;
-}
-
-div.modal .close_modal {
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
-  cursor: pointer;
-  font-size: 18px;
-  background: none;
-  border: none;
-  color: #fff;
-  z-index: 996;
-}
-
-div.modal .close_modal:hover {
-  opacity: 0.9;
 }
 
 /* Horizontal search bar */
@@ -489,6 +222,7 @@ div.modal .close_modal:hover {
     padding-left: 1rem;
   }
 }
+
 @media (min-width: 41.15rem) {
   p.alert-text {
     font-size: inherit;
@@ -499,36 +233,5 @@ div.modal .close_modal:hover {
   div.wrapper {
     border: 1px solid #3366ff;
     margin: 0.5rem;
-  }
-
-  /* Filter Form */
-  form.filter-form {
-    border-radius: 0;
-    padding: 1rem;
-  }
-
-  form.filter-form > div {
-    display: inline-block;
-    vertical-align: middle;
-    border: none;
-    margin: 0;
-    padding: 0;
-    min-height: 0;
-  }
-
-  form.filter-form > div > div.input-container {
-    padding: 0;
-  }
-
-  div.radio {
-    width: auto;
-  }
-
-  div.radio input[type='radio'] {
-    margin-right: 1rem;
-  }
-
-  input[name='search'] {
-    width: auto;
   }
 }
