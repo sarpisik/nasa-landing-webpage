@@ -1,8 +1,8 @@
 {
-  "name": "vanilla-boilerplate",
+  "name": "nasa-landing-page",
   "version": "1.0.0",
   "private": true,
-  "description": "This is a starter boilerplate for vanilla css / javascript projects",
+  "description": "A landing webpage with media contents of NASA. Powered by vanilla css & javascript",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
@@ -16,9 +16,9 @@
   "author": "Sarp IŞIK",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sarpisik/vanilla-boilerplate/issues"
+    "url": "https://github.com/sarpisik/nasa-landing-webpage/issues"
   },
-  "homepage": "https://github.com/sarpisik/vanilla-boilerplate#readme",
+  "homepage": "https://github.com/sarpisik/nasa-landing-webpage#readme",
   "dependencies": {
     "normalize.css": "^8.0.1",
     "whatwg-fetch": "^3.0.0"

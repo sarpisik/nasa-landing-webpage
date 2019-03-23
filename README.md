@@ -1,4 +1,4 @@
-# ReactNative Theme Boilerplate
+# Nasa Landing Page
 
 This is a vanilla CSS & JavaScript project which makes API request of desired media contents from NASA.
 
