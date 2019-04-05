@@ -16,7 +16,8 @@ module.exports = merge(common, {
   output: {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/nasa/'
   },
   module: {
     rules: [

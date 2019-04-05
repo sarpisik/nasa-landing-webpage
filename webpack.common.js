@@ -15,7 +15,12 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        use: [{ loader: 'file-loader', options: { outputPath: 'fonts/' } }]
+        use: [
+          {
+            loader: 'file-loader',
+            options: { outputPath: 'fonts/' }
+          }
+        ]
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
