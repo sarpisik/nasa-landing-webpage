@@ -1,6 +1,6 @@
-# Nasa Landing Page
+# Nasa Single-Page Application
 
-This is a vanilla CSS & JavaScript project which makes API request of desired media contents from NASA.
+This is a vanilla CSS & JavaScript project which makes API request of desired media contents from 'https://www.nasa.gov/'.
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ To get started open your command-line and follow the below steps
 ### Installing
 
 ```
-git clone https://github.com/sarpisik/nasa-landing-webpage.git
+git clone https://github.com/sarpisik/nasa-spa.git
 ```
 
 Then
