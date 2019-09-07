@@ -16,7 +16,7 @@ git clone https://github.com/sarpisik/nasa-spa.git
 Then
 
 ```
-cd vanilla-boilerplate
+cd nasa-spa
 ```
 
 And
