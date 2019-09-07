@@ -1,7 +1,7 @@
 # Nasa Single-Page Application [![Build Status](https://travis-ci.com/sarpisik/nasa-spa.svg?branch=master)](https://travis-ci.com/sarpisik/nasa-spa)
 
 This is a vanilla CSS & JavaScript project which makes API request of desired media contents from 'https://www.nasa.gov/'.
-Demo: https://www.sarpisik.com/nasa/index.html
+Demo: https://sarpisik.github.io/nasa-spa/
 
 ## Getting Started
 
