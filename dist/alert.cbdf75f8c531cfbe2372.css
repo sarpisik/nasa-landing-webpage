@@ -1,1 +1,0 @@
-div.alert-container{position:absolute;top:.5rem;left:0;right:0;color:#fff;padding:0 1rem;border-radius:.5rem;box-shadow:0 0 10px 0 red;text-align:center;opacity:0;transition:opacity .2s ease-in-out}div.alert-container.show{opacity:1}p.alert-text{font-size:.7rem}
